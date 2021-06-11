@@ -1,31 +1,49 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { Layout, Menu } from "antd";
 
+import 'antd/dist/antd.css'
+
+import "./App.css";
 import Home from "./components";
 import CipherFunctions from "./components/CipherFunctions";
 import BlockChain from "./components/BlockChain";
 import RSA from "./components/RSA";
 
+const { Header, Content } = Layout;
+
 function App() {
   return (
     <div className="App">
       <Router>
-        <div>
-          <Switch>
-            <Route path="/blockChain">
-              <BlockChain />
-            </Route>
-            <Route path="/cipherFunctions">
-              <CipherFunctions />
-            </Route>
-            <Route path="/rsa">
-              <RSA />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
+        <Layout>
+          <Header>
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
+            <Menu.Item key={'Home'}><Link to='/'>Home</Link> </Menu.Item>
+            <Menu.Item key={'BlockChain'}><Link to='BlockChain'></Link>BlockChain</Menu.Item>
+            <Menu.Item key={'Cipher'}><Link to='Cipher'></Link>Cipher</Menu.Item>
+            <Menu.Item key={'RSA'}><Link to='RSA'></Link>RSA</Menu.Item>
+
+            </Menu>
+          </Header>
+          <Content>
+            <div>
+              <Switch>
+                <Route path="/blockChain">
+                  <BlockChain />
+                </Route>
+                <Route path="/cipher">
+                  <CipherFunctions />
+                </Route>
+                <Route path="/rsa">
+                  <RSA />
+                </Route>
+                <Route path="/">
+                  <Home />
+                </Route>
+              </Switch>
+            </div>
+          </Content>
+        </Layout>
       </Router>
     </div>
   );
