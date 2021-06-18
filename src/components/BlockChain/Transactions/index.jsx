@@ -24,13 +24,21 @@ const Transactions = ({addBlock = () => {}}) => {
   return (
     <div className={styles.container}>
       <h1>Transactions</h1>
+
+      {/* render area for transactions */}
       <div ref={scrollableDivRef} className={styles['transactions-list']}>
-        {transactionsList.map((transaction, index) => (
-          <React.Fragment key={index}>
-            <TransactionTile transaction={transaction}></TransactionTile>
-          </React.Fragment>
-        ))}
+        {transactionsList.length === 0 ? (
+          <div className={styles['no-transactions']}>No transactions added</div>
+        ) : (
+          transactionsList.map((transaction, index) => (
+            <React.Fragment key={index}>
+              <TransactionTile transaction={transaction}></TransactionTile>
+            </React.Fragment>
+          ))
+        )}
       </div>
+
+      {/* option buttons */}
       <Row>
         {/* TODO: add proper transaction */}
         <Button style={{margin: '10px'}} onClick={() => addTransaction({})}>

@@ -27,6 +27,16 @@
   scroll-behavior: smooth;
 }
 
+.no-transactions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
 .transactions-list::-webkit-scrollbar {
   width: 10px;
 }
