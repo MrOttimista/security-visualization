@@ -5,4 +5,5 @@
   background-color: #efefef;
   min-width: 500px;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
