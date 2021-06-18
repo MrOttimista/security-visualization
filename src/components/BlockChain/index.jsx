@@ -1,5 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import BlocksView from './BlocksView';
+import ClearButton from './ClearButton';
 import Transactions from './Transactions';
 
 const Blockchain = () => {
@@ -21,6 +22,7 @@ const Blockchain = () => {
     <div style={{display: 'flex', flexWrap: 'wrap'}}>
       <Transactions addBlock={addBlock}></Transactions>
       <BlocksView blocks={blocks}></BlocksView>
+      <ClearButton></ClearButton>
     </div>
   );
 };
