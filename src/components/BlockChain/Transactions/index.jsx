@@ -1,10 +1,17 @@
 import {Button, Row} from 'antd';
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import styles from './transactions.module.css';
 import TransactionTile from './TransactionTile';
 
 const Transactions = ({addBlock = () => {}}) => {
   const [transactionsList, setTransactionsList] = useState([]);
+
+  const addTransaction = useCallback(
+    (transaction) => {
+      setTransactionsList((prev) => prev.concat(transaction));
+    },
+    [setTransactionsList]
+  );
 
   return (
     <div className={styles.container}>
@@ -17,7 +24,9 @@ const Transactions = ({addBlock = () => {}}) => {
         ))}
       </div>
       <Row>
-        <Button style={{margin: '10px'}}>Add transaction</Button>
+        <Button style={{margin: '10px'}} onClick={() => addTransaction({})}>
+          Add transaction
+        </Button>
         <Button
           style={{margin: '10px'}}
           onClick={() =>
