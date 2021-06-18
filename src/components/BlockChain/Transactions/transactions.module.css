@@ -21,4 +21,20 @@
   height: 80%;
   width: 100%;
   overflow-y: scroll;
+  scrollbar-color: #001529 transparent;
+  scrollbar-width: thin;
+}
+
+.transactions-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.transactions-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+.transactions-list::-webkit-scrollbar-thumb {
+  background: #001529;
 }

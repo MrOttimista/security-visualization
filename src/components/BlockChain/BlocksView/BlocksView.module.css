@@ -6,4 +6,20 @@
   min-width: 500px;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  scrollbar-color: #001529 transparent;
+  scrollbar-width: thin;
+}
+
+.container::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.container::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+.container::-webkit-scrollbar-thumb {
+  background: #001529;
 }
