@@ -1,10 +1,10 @@
 @keyframes riseUp {
   from {
-    margin-top: 100px;
+    transform: translateY(50px);
     opacity: 0;
   }
   to {
-    margin-top: 0px;
+    transform: translateY(0px);
     opacity: 1;
   }
 }
@@ -15,7 +15,7 @@
   align-items: center;
   flex-direction: column;
   animation-name: riseUp;
-  animation-duration: 1s;
+  animation-duration: 0.75s;
 }
 
 .block {
