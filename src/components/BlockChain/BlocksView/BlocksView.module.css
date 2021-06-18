@@ -1,0 +1,7 @@
+.container {
+  width: 100%;
+  height: calc(100vh - 64px);
+  background-color: #efefef;
+  min-width: 500px;
+  overflow-y: scroll;
+}
