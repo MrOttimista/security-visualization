@@ -3,7 +3,7 @@ import styles from './BlockTile.module.css';
 import GroundSign from './GroundSign';
 import UpsideArrow from './UpsideArrow';
 
-const BlockTile = ({prevHash} = {prevHash: undefined}) => {
+const BlockTile = ({prevHash}) => {
   return (
     <div className={styles.container}>
       {prevHash ? <UpsideArrow></UpsideArrow> : <GroundSign></GroundSign>}
