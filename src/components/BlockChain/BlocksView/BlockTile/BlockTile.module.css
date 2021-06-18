@@ -1,8 +1,21 @@
+@keyframes riseUp {
+  from {
+    margin-top: 100px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  animation-name: riseUp;
+  animation-duration: 1s;
 }
 
 .block {
