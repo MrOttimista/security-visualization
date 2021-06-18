@@ -1,10 +1,11 @@
 import {Button, Row} from 'antd';
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useRef, useState, useEffect} from 'react';
 import styles from './transactions.module.css';
 import TransactionTile from './TransactionTile';
 
 const Transactions = ({addBlock = () => {}}) => {
   const [transactionsList, setTransactionsList] = useState([]);
+  const scrollableDivRef = useRef(null);
 
   const addTransaction = useCallback(
     (transaction) => {
@@ -13,10 +14,17 @@ const Transactions = ({addBlock = () => {}}) => {
     [setTransactionsList]
   );
 
+  // side effect for scrolling down after blcok addition
+  useEffect(() => {
+    if (!scrollableDivRef.current) return;
+
+    scrollableDivRef.current.scrollTop = scrollableDivRef.current.scrollHeight;
+  }, [transactionsList, scrollableDivRef]);
+
   return (
     <div className={styles.container}>
       <h1>Transactions</h1>
-      <div className={styles['transactions-list']}>
+      <div ref={scrollableDivRef} className={styles['transactions-list']}>
         {transactionsList.map((transaction, index) => (
           <React.Fragment key={index}>
             <TransactionTile transaction={transaction}></TransactionTile>

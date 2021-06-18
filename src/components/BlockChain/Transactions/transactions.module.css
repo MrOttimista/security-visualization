@@ -23,6 +23,7 @@
   overflow-y: scroll;
   scrollbar-color: tranparent #efefef;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 
 .transactions-list::-webkit-scrollbar {
