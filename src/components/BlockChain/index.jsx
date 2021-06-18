@@ -18,7 +18,7 @@ const Blockchain = () => {
   );
 
   return (
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex', flexWrap: 'wrap'}}>
       <Transactions addBlock={addBlock}></Transactions>
       <BlocksView blocks={blocks}></BlocksView>
     </div>

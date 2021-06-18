@@ -4,15 +4,15 @@
     opacity: 0;
   }
   to {
-    margin-left: 10px;
+    margin-left: 5%;
     opacity: 1;
   }
 }
 
 .container {
-  width: calc(100% - 10px);
+  width: calc(100% - 10%);
   height: 100px;
-  margin: 10px;
+  margin: 10px 5% 10px 5%;
   border-radius: 5px;
   background-color: #efefef;
   animation-name: slideIn;
