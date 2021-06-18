@@ -32,18 +32,27 @@ const Transactions = ({addBlock = () => {}}) => {
         ))}
       </div>
       <Row>
+        {/* TODO: add proper transaction */}
         <Button style={{margin: '10px'}} onClick={() => addTransaction({})}>
           Add transaction
         </Button>
         <Button
           style={{margin: '10px'}}
-          onClick={() =>
+          disabled={!transactionsList.length}
+          title={
+            !transactionsList.length
+              ? 'You must add transactions first'
+              : undefined
+          }
+          onClick={() => {
             addBlock({
               hash: 'temp',
               timeStamp: Date.now().valueOf(),
-              transactionsList: [],
-            })
-          }
+              transactionsList: transactionsList,
+            });
+
+            setTransactionsList([]);
+          }}
         >
           Add block
         </Button>
