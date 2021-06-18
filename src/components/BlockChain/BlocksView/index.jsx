@@ -9,7 +9,7 @@ const BlocksView = ({blocks = []}) => {
     <div className={styles.container}>
       {blocks.map((block, index) => (
         <React.Fragment key={index}>
-          <BlockTile prevHash={block.prevHash}></BlockTile>
+          <BlockTile {...block}></BlockTile>
         </React.Fragment>
       ))}
     </div>

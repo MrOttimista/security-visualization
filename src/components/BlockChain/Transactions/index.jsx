@@ -11,7 +11,13 @@ const Transactions = ({addBlock = () => {}}) => {
         <Button style={{margin: '10px'}}>Add transaction</Button>
         <Button
           style={{margin: '10px'}}
-          onClick={() => addBlock({hash: 'temp'})}
+          onClick={() =>
+            addBlock({
+              hash: 'temp',
+              timeStamp: Date.now().valueOf(),
+              transactionsList: [],
+            })
+          }
         >
           Add block
         </Button>
