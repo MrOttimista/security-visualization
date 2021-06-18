@@ -1,9 +1,7 @@
+import React from 'react';
 
+const Blockchain = () => {
+  return <h1>Blockchain</h1>;
+};
 
-function BlockChain() {
-    return(
-        <h1>BlockChain</h1>
-    )
-}
-
-export default BlockChain
+export default Blockchain;
