@@ -18,11 +18,13 @@ const Blockchain = () => {
     [setBlocks]
   );
 
+  const clearBlocks = useCallback(() => setBlocks([]), [setBlocks]);
+
   return (
     <div style={{display: 'flex', flexWrap: 'wrap'}}>
       <Transactions addBlock={addBlock}></Transactions>
       <BlocksView blocks={blocks}></BlocksView>
-      <ClearButton></ClearButton>
+      <ClearButton onClick={clearBlocks}></ClearButton>
     </div>
   );
 };
