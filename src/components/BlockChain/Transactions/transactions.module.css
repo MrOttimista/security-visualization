@@ -21,7 +21,7 @@
   height: 80%;
   width: 100%;
   overflow-y: scroll;
-  scrollbar-color: #001529 transparent;
+  scrollbar-color: tranparent #efefef;
   scrollbar-width: thin;
 }
 
