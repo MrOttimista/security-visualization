@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import hashBlock from '../../helpers/miner';
+import hashUtil from '../../helpers/miner';
 import BlocksView from './BlocksView';
 import ClearButton from './ClearButton';
 import Transactions from './Transactions';
@@ -18,16 +18,22 @@ const Blockchain = () => {
         transactionsList: transactionsList,
       });
 
-      const {hash, nonce} = await hashBlock(seed);
-      setBlocks(
-        blocks.concat({
-          prevHash: prevHash,
-          timeStamp: timeStamp,
-          transactionsList: transactionsList,
-          nonce: nonce,
-          hash: hash,
-        })
-      );
+      let nonce = 0;
+      let hash = 'xxxxxx';
+
+      while (hash.slice(0, 2) !== '00') {
+        hash = await hashUtil(seed, nonce);
+        nonce += 1;
+        setBlocks(
+          blocks.concat({
+            prevHash: prevHash,
+            timeStamp: timeStamp,
+            transactionsList: transactionsList,
+            nonce: nonce,
+            hash: hash,
+          })
+        );
+      }
     },
     [blocks, setBlocks]
   );
