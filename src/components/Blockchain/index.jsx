@@ -8,7 +8,7 @@ const Blockchain = () => {
   const [blocks, setBlocks] = useState([]);
 
   const addBlock = useCallback(
-    (transactionsList) => {
+    async (transactionsList) => {
       const prevHash =
         blocks.length === 0 ? 'none' : blocks[blocks.length - 1].hash;
       const timeStamp = Date.now().valueOf();
@@ -18,7 +18,7 @@ const Blockchain = () => {
         transactionsList: transactionsList,
       });
 
-      const {hash, nonce} = hashBlock(seed);
+      const {hash, nonce} = await hashBlock(seed);
       setBlocks(
         blocks.concat({
           prevHash: prevHash,

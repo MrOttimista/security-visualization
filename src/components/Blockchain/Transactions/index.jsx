@@ -69,8 +69,8 @@ const Transactions = ({addBlock = () => {}}) => {
               ? 'You must add transactions first'
               : undefined
           }
-          onClick={() => {
-            addBlock(transactionsList);
+          onClick={async () => {
+            await addBlock(transactionsList);
             setTransactionsList([]);
           }}
         >
