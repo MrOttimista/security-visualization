@@ -54,7 +54,13 @@ const Transactions = ({addBlock = () => {}}) => {
         {/* TODO: add proper transaction */}
         <Button
           style={{margin: '10px'}}
-          onClick={() => addTransaction({from: '', to: '', amount: 0})}
+          onClick={() =>
+            addTransaction({
+              from: 'Alice',
+              to: 'Bob',
+              amount: Math.random() * 10,
+            })
+          }
         >
           Add transaction
         </Button>
