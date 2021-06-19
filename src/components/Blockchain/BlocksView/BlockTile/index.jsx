@@ -3,7 +3,7 @@ import styles from './BlockTile.module.css';
 import GroundSign from './GroundSign';
 import UpsideArrow from './UpsideArrow';
 
-const BlockTile = ({prevHash, timeStamp, hash, transactionsList}) => {
+const BlockTile = ({prevHash, timeStamp, hash, transactionsList, nonce}) => {
   return (
     <div className={styles.container}>
       {prevHash ? <UpsideArrow></UpsideArrow> : <GroundSign></GroundSign>}
@@ -11,6 +11,7 @@ const BlockTile = ({prevHash, timeStamp, hash, transactionsList}) => {
         <p>prevHash: {prevHash ?? 'none'}</p>
         <p>timeStamp: {timeStamp}</p>
         <p>transactions</p>
+        <p>nonce: {nonce}</p>
         <p>hash: {hash}</p>
       </div>
     </div>

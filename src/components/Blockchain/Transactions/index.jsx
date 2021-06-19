@@ -78,6 +78,7 @@ const Transactions = ({addBlock = () => {}}) => {
               hash: 'temp',
               timeStamp: Date.now().valueOf(),
               transactionsList: transactionsList,
+              nonce: 'temp',
             });
 
             setTransactionsList([]);
