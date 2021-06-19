@@ -1,5 +1,6 @@
 import {Button, Row} from 'antd';
 import React, {useCallback, useRef, useState, useEffect} from 'react';
+import LoadingIndicator from './LoadingIndicator';
 import styles from './transactions.module.css';
 import TransactionTile from './TransactionTile';
 
@@ -32,8 +33,10 @@ const Transactions = ({addBlock = () => {}}) => {
 
       {/* render area for transactions */}
       <div ref={scrollableDivRef} className={styles['transactions-list']}>
-        {transactionsList.length === 0 ? (
-          <div className={styles['no-transactions']}>No transactions added</div>
+        {loading ? (
+          <LoadingIndicator></LoadingIndicator>
+        ) : transactionsList.length === 0 ? (
+          <div className={styles['no-transactions']}>Add transactions</div>
         ) : (
           transactionsList.map((_, index) => (
             <React.Fragment key={index}>
