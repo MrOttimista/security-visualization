@@ -22,3 +22,13 @@
   padding: 10px;
   border: solid black 5px;
 }
+
+.link {
+  color: #1890ff;
+  cursor: pointer;
+  transition-duration: 0.25s;
+}
+
+.link:hover {
+  filter: brightness(1.4);
+}
