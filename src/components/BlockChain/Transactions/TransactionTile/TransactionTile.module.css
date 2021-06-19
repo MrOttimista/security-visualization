@@ -11,11 +11,12 @@
 
 .container {
   width: calc(100% - 10%);
-  height: 100px;
   margin: 10px 5% 10px 5%;
+  padding: 10px;
   border-radius: 5px;
   background-color: #efefef;
   animation-name: slideIn;
   animation-duration: 0.5s;
   animation-timing-function: ease;
+
 }
