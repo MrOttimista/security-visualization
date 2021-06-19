@@ -1,5 +1,5 @@
-import {sha256} from 'js-sha256';
 import React, {useCallback, useState} from 'react';
+import hashBlock from '../../helpers/miner';
 import BlocksView from './BlocksView';
 import ClearButton from './ClearButton';
 import Transactions from './Transactions';
@@ -17,15 +17,8 @@ const Blockchain = () => {
         timeStamp: timeStamp,
         transactionsList: transactionsList,
       });
-      let nonce = 0;
-      let hash = '';
 
-      while (true) {
-        hash = sha256(seed + nonce);
-        if (hash[0] === '0') break;
-        nonce += 1;
-      }
-
+      const {hash, nonce} = hashBlock(seed);
       setBlocks(
         blocks.concat({
           prevHash: prevHash,
