@@ -3,7 +3,7 @@ import BlocksView from './BlocksView';
 import ClearButton from './ClearButton';
 import Transactions from './Transactions';
 
-const BlockChain = () => {
+const Blockchain = () => {
   const [blocks, setBlocks] = useState([]);
 
   const addBlock = useCallback(
@@ -29,4 +29,4 @@ const BlockChain = () => {
   );
 };
 
-export default BlockChain;
+export default Blockchain;
