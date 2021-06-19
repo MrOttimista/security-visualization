@@ -73,13 +73,7 @@ const Transactions = ({addBlock = () => {}}) => {
               : undefined
           }
           onClick={() => {
-            console.log(transactionsList);
-            addBlock({
-              hash: 'temp',
-              timeStamp: Date.now().valueOf(),
-              transactionsList: transactionsList,
-              nonce: 'temp',
-            });
+            addBlock(transactionsList);
 
             setTransactionsList([]);
           }}
