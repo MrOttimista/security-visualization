@@ -10,11 +10,18 @@ const BlockTile = ({prevHash, timeStamp, hash, transactionsList}) => {
       <div className={styles.block}>
         <p>prevHash: {prevHash ?? 'none'}</p>
         <p>timeStamp: {timeStamp}</p>
-        <p>transactions</p>
+        <p>{transactionsString(transactionsList)}</p>
         <p>hash: {hash}</p>
       </div>
     </div>
   );
 };
+
+const transactionsString = (transactionsList) =>
+  transactionsList.map((item) =>
+    <div>
+      {item.from} to {item.to} = {item.amount}
+    </div>
+  );
 
 export default BlockTile;
