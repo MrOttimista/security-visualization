@@ -5,7 +5,6 @@
   background-color: #efefef;
   min-width: 300px;
   overflow-y: scroll;
-  scroll-behavior: smooth;
   scrollbar-color: #001529 transparent;
   scrollbar-width: thin;
 }
