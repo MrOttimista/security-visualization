@@ -10,7 +10,7 @@ const Blockchain = () => {
   const addBlock = useCallback(
     async (transactionsList) => {
       const prevHash =
-        blocks.length === 0 ? 'none' : blocks[blocks.length - 1].hash;
+        blocks.length === 0 ? undefined : blocks[blocks.length - 1].hash;
       const timeStamp = Date.now().valueOf();
       const seed = JSON.stringify({
         prevHash: prevHash,
