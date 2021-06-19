@@ -11,7 +11,7 @@ function TranspositionCipher() {
   const [isEncrypt, setIsEncrypt] = useState(false);
   const [initTable, setInitTable] = useState([]);
   const [swappingTable, setSwappingTable] = useState([]);
-  const [finalMessage,setFinalMessage] =useState('');
+  const [finalMessage, setFinalMessage] = useState("");
 
   function handleKeyError(value) {
     let formattedKey = value
@@ -29,23 +29,25 @@ function TranspositionCipher() {
 
   function setSwappingTableHelper(messageTable, key, type) {
     let result = [];
-    let finalMessage=''
+    let finalMessage = "";
     messageTable.forEach((row) => {
       let tempArray = [];
-      key.forEach((keyIndex) => {tempArray.push(row[keyIndex]);finalMessage+=row[keyIndex]});
+      key.forEach((keyIndex) => {
+        tempArray.push(row[keyIndex]);
+        finalMessage += row[keyIndex];
+      });
       result.push(tempArray);
     });
     setSwappingTable(result);
-    console.log(finalMessage )
-    setTimeout(
-        () => { setFinalMessage(finalMessage)},
-        2000
-      );
+    console.log(finalMessage);
+    setTimeout(() => {
+      setFinalMessage(finalMessage);
+    }, 2000);
   }
 
   function setInitTableHelper(message, formattedKey, type) {
     setSwappingTable([]);
-    setFinalMessage('');
+    setFinalMessage("");
 
     let formattedMessage = message.replace(/\s/g, "");
     if (type === "Encrypt") {
@@ -186,15 +188,16 @@ function TranspositionCipher() {
               )}
             </Col>
           </Row>
-          {finalMessage.length>0 && (
-              <div>
-                   {!isEncrypt ? (
-                    <div> Read row by row </div>
-                  ) : (
-                    <div> Read col by col </div>
-                  )}
-                  Final Message: <span style={{color:'green'}}> {finalMessage} </span>
-              </div>
+          {finalMessage.length > 0 && (
+            <div>
+              {!isEncrypt ? (
+                <div> Read row by row </div>
+              ) : (
+                <div> Read col by col </div>
+              )}
+              Final Message:{" "}
+              <span style={{ color: "green" }}> {finalMessage} </span>
+            </div>
           )}
         </section>
       </center>
