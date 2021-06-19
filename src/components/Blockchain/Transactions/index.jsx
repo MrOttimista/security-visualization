@@ -25,7 +25,7 @@ const Transactions = ({addBlock = () => {}}) => {
     if (!scrollableDivRef.current) return;
 
     scrollableDivRef.current.scrollTop = scrollableDivRef.current.scrollHeight;
-  }, [transactionsList, scrollableDivRef]);
+  }, [transactionsList.length, scrollableDivRef]);
 
   return (
     <div className={styles.container}>
