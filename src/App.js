@@ -1,15 +1,15 @@
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
-import {Layout, Menu} from 'antd';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { Layout, Menu } from 'antd';
 
 import 'antd/dist/antd.css';
 
 import './App.css';
 import Home from './components';
 import CipherFunctions from './components/CipherFunctions';
-import Blockchain from './components/Blockchain';
+import Blockchain from './components/Blockchain'
 import RSA from './components/RSA';
 
-const {Header, Content} = Layout;
+const { Header, Content } = Layout;
 
 function App() {
   return (
