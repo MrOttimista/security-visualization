@@ -5,6 +5,7 @@ import TransactionTile from './TransactionTile';
 
 const Transactions = ({addBlock = () => {}}) => {
   const [transactionsList, setTransactionsList] = useState([]);
+  const [loading, setLoading] = useState(false);
   const scrollableDivRef = useRef(null);
 
   const addTransaction = useCallback(
@@ -51,6 +52,7 @@ const Transactions = ({addBlock = () => {}}) => {
         {/* TODO: add proper transaction */}
         <Button
           style={{margin: '10px'}}
+          loading={loading}
           onClick={() =>
             addTransaction({
               from: 'Alice',
@@ -62,6 +64,7 @@ const Transactions = ({addBlock = () => {}}) => {
           Add transaction
         </Button>
         <Button
+          loading={loading}
           style={{margin: '10px'}}
           disabled={!transactionsList.length}
           title={
@@ -70,8 +73,10 @@ const Transactions = ({addBlock = () => {}}) => {
               : undefined
           }
           onClick={async () => {
+            setLoading(true);
             await addBlock(transactionsList);
             setTransactionsList([]);
+            setLoading(false);
           }}
         >
           Add block

@@ -13,7 +13,7 @@ const hashBlock = (seed) => {
 
     while (true) {
       hash = await hashUtil(seed, nonce);
-      if (hash[0] === '0') resolve({hash, nonce});
+      if (hash.slice(0, 2) === '00') resolve({hash, nonce});
       nonce += 1;
     }
   });
