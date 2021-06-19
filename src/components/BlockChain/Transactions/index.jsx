@@ -1,9 +1,9 @@
-import {Button, Row} from 'antd';
-import React, {useCallback, useRef, useState, useEffect} from 'react';
+import { Button, Row } from 'antd';
+import React, { useCallback, useRef, useState, useEffect } from 'react';
 import styles from './transactions.module.css';
 import TransactionTile from './TransactionTile';
 
-const Transactions = ({addBlock = () => {}}) => {
+const Transactions = ({ addBlock = () => { } }) => {
   const [transactionsList, setTransactionsList] = useState([]);
   const scrollableDivRef = useRef(null);
 
@@ -13,6 +13,12 @@ const Transactions = ({addBlock = () => {}}) => {
     },
     [setTransactionsList]
   );
+
+  const editTransaction = (index, transactionData) => {
+    const newTransactions = transactionsList.concat()
+    newTransactions[index] = { ...newTransactions[index], ...transactionData };
+    setTransactionsList(newTransactions);
+  }
 
   // side effect for scrolling down after blcok addition
   useEffect(() => {
@@ -30,9 +36,12 @@ const Transactions = ({addBlock = () => {}}) => {
         {transactionsList.length === 0 ? (
           <div className={styles['no-transactions']}>No transactions added</div>
         ) : (
-          transactionsList.map((transaction, index) => (
+          transactionsList.map((_, index) => (
             <React.Fragment key={index}>
-              <TransactionTile transaction={transaction}></TransactionTile>
+              <TransactionTile onChange={(from, to, amount) => {
+                console.log(from);
+                editTransaction(index, from, to, amount);
+              }}></TransactionTile>
             </React.Fragment>
           ))
         )}
@@ -41,11 +50,11 @@ const Transactions = ({addBlock = () => {}}) => {
       {/* option buttons */}
       <Row>
         {/* TODO: add proper transaction */}
-        <Button style={{margin: '10px'}} onClick={() => addTransaction({})}>
+        <Button style={{ margin: '10px' }} onClick={() => addTransaction({ from: '', to: '', amount: 0 })}>
           Add transaction
         </Button>
         <Button
-          style={{margin: '10px'}}
+          style={{ margin: '10px' }}
           disabled={!transactionsList.length}
           title={
             !transactionsList.length
@@ -53,6 +62,7 @@ const Transactions = ({addBlock = () => {}}) => {
               : undefined
           }
           onClick={() => {
+            console.log(transactionsList);
             addBlock({
               hash: 'temp',
               timeStamp: Date.now().valueOf(),
