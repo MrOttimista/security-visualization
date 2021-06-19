@@ -15,9 +15,7 @@ const Transactions = ({addBlock = () => {}}) => {
   );
 
   const editTransaction = (index, transactionData) => {
-    const newTransactions = transactionsList.concat();
-    newTransactions[index] = {...newTransactions[index], ...transactionData};
-    setTransactionsList(newTransactions);
+    transactionsList[index] = {...transactionsList[index], ...transactionData};
   };
 
   // side effect for scrolling down after blcok addition
@@ -40,7 +38,6 @@ const Transactions = ({addBlock = () => {}}) => {
             <React.Fragment key={index}>
               <TransactionTile
                 onChange={(from, to, amount) => {
-                  console.log(from);
                   editTransaction(index, from, to, amount);
                 }}
               ></TransactionTile>
@@ -74,7 +71,6 @@ const Transactions = ({addBlock = () => {}}) => {
           }
           onClick={() => {
             addBlock(transactionsList);
-
             setTransactionsList([]);
           }}
         >
