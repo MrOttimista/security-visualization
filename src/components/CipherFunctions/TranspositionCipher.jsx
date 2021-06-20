@@ -27,19 +27,27 @@ function TranspositionCipher() {
     } else setFormattedKey(formattedKey);
   }
 
-  function setSwappingTableHelper(messageTable, key, type) {
+  function setSwappingTableHelper(messageTable, formattedKey, type) {
     let result = [];
     let finalMessage = "";
     messageTable.forEach((row) => {
       let tempArray = [];
-      key.forEach((keyIndex) => {
+      formattedKey.forEach((keyIndex) => {
         tempArray.push(row[keyIndex]);
-        finalMessage += row[keyIndex];
+        if (type !== "Encrypt") {
+          finalMessage += row[keyIndex];
+        }
       });
       result.push(tempArray);
     });
+    if (type === "Encrypt") {
+      formattedKey.forEach((row, colIndex) => {
+        result.forEach((item, rowIndex) => {
+          finalMessage += result[rowIndex][colIndex];
+        });
+      });
+    }
     setSwappingTable(result);
-    console.log(finalMessage);
     setTimeout(() => {
       setFinalMessage(finalMessage);
     }, 2000);
@@ -56,12 +64,39 @@ function TranspositionCipher() {
 
     let splittingRegex = new RegExp(`.{1,${formattedKey.length}}`, "g");
     let result = formattedMessage.match(splittingRegex);
+
     if (result[result.length - 1].length !== result[0].length) {
       result[result.length - 1] =
         result[result.length - 1] +
         "x".repeat(result[0].length - result[result.length - 1].length);
     }
-    const finalResult = result.map((item) => item.split(""));
+    let finalResult = Array(result.length).fill([]);
+    if (type === "Encrypt") {
+      finalResult = result.map((item) => item.split(""));
+    } else {
+      let text = result.join("");
+      finalResult.forEach((row, index) => {
+        let i = index;
+        let rowText = "";
+        while (i < text.length) {
+          rowText += text[i];
+          i += finalResult.length;
+        }
+        finalResult[index] = rowText;
+      });
+      finalResult = finalResult.map((item) => item.split(""));
+    }
+
+    if (type !== "Encrypt") {
+      let finalKey = formattedKey.map((item, index) => ({
+        value: item,
+        index,
+      }));
+      finalKey = finalKey
+        .sort((a, b) => (a.value > b.value ? 1 : -1))
+        .map((item) => item.index);
+      formattedKey = finalKey;
+    }
     setTimeout(
       () => setSwappingTableHelper(finalResult, formattedKey, type),
       2000
@@ -122,9 +157,9 @@ function TranspositionCipher() {
             <Button
               type="primary"
               shape="round"
-              //   onClick={() =>
-              //     setResult(encryptDecryptCaesarCipher(message, key, false))
-              //   }
+              onClick={() =>
+                setInitTable(setInitTableHelper(message, formattedKey))
+              }
             >
               Decrypt
             </Button>
