@@ -92,7 +92,7 @@ function TranspositionCipher() {
                 min={1}
                 max={26}
                 defaultValue={3}
-                placeholder={"2,1,3"}
+                placeholder={"2,1,0"}
                 value={key}
                 onChange={(e) => setKey(e.target.value)}
                 onFocus={() => setIsKeyError(false)}
