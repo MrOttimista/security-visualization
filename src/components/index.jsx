@@ -1,6 +1,9 @@
 import { FileSearchOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
+import { useHistory } from "react-router";
+
 function Home() {
+    const history=useHistory()
   return (
     <>
       <div style={{ background: "#050c27", color: "white", paddingTop: "20px" }}>
@@ -25,9 +28,9 @@ function Home() {
       </div>
 
       <Row justify="space-around">
-      <Col span={4} className='card'>BlockChain</Col>
-      <Col span={4} className='card'>Classic Cipher</Col>
-      <Col span={4} className='card'>RSA</Col>
+      <Col span={4} className='card' onClick={()=>history.push('/BlockChain')}>BlockChain</Col>
+      <Col span={4} className='card' onClick={()=>history.push('/Cipher')}>Classic Cipher</Col>
+      <Col span={4} className='card' onClick={()=>history.push('/RSA')}>RSA</Col>
     </Row>
     </>
   );
