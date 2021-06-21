@@ -15,8 +15,13 @@ function encryptDecryptCaesarCipher(message, key, isEncrypt = true) {
       let newCharCode = isEncrypt
         ? finalMessage[i].charCodeAt(0) + finalKey
         : finalMessage[i].charCodeAt(0) - finalKey;
+      console.log(newCharCode, finalKey);
+
       if (newCharCode > endCharCode) {
-        newCharCode = (newCharCode % endCharCode) + startCharCode;
+        newCharCode = (newCharCode % endCharCode) + startCharCode - 1;
+      }
+      if (newCharCode < startCharCode) {
+        newCharCode = endCharCode - (startCharCode - newCharCode) + 1;
       }
       result += String.fromCharCode(newCharCode);
     } else {
