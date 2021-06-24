@@ -1,0 +1,24 @@
+.container {
+  padding: 20px;
+  flex: 2;
+  height: calc(100vh - 64px);
+  background-color: #efefef;
+  min-width: 300px;
+  overflow-y: scroll;
+  scrollbar-color: #001529 transparent;
+  scrollbar-width: thin;
+}
+
+.container::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.container::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+.container::-webkit-scrollbar-thumb {
+  background: #001529;
+}
