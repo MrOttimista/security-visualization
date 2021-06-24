@@ -1,0 +1,8 @@
+.listItem {
+    position: relative;
+    margin-bottom: 5px;
+      text-align: center;
+    text-transform: uppercase;
+    animation: fadeIn 0.5s linear;
+    animation-fill-mode: both;
+  }

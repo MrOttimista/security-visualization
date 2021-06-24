@@ -8,6 +8,8 @@ import Home from "./components";
 import CipherFunctions from "./components/CipherFunctions";
 import BlockChain from "./components/BlockChain";
 import RSA from "./components/RSA";
+import SHA512 from "./components/SHA512";
+import ELGAMAL from "./components/ELGAMAL";
 
 const { Header, Content } = Layout;
 
@@ -22,6 +24,8 @@ function App() {
             <Menu.Item key={'BlockChain'}><Link to='BlockChain'></Link>BlockChain</Menu.Item>
             <Menu.Item key={'Cipher'}><Link to='Cipher'></Link>Cipher</Menu.Item>
             <Menu.Item key={'RSA'}><Link to='RSA'></Link>RSA</Menu.Item>
+            <Menu.Item key={'ELGAMAL'}><Link to='ELGAMAL'></Link>ELGAMAL</Menu.Item>
+            <Menu.Item key={'SHA512'}><Link to='SHA512'></Link>SHA512</Menu.Item>
 
             </Menu>
           </Header>
@@ -34,8 +38,14 @@ function App() {
                 <Route path="/cipher">
                   <CipherFunctions />
                 </Route>
-                <Route path="/rsa">
+                <Route path="/RSA">
                   <RSA />
+                </Route>
+                <Route path="/SHA512">
+                  <SHA512 />
+                </Route>
+                <Route path="/ELGAMAL">
+                  <ELGAMAL />
                 </Route>
                 <Route path="/">
                   <Home />
