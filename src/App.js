@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Layout>
+        <Layout style={{height:'100vh'}}>
           <Header>
             <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
               <Menu.Item key={"Home"}>
