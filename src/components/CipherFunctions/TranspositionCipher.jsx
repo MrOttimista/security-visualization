@@ -2,7 +2,7 @@ import { Button, Col, Input, Row } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { useState } from "react";
 
-import './cipher.css';
+import "./cipher.css";
 
 const colors = [
   "#1ac9c7",
@@ -180,13 +180,13 @@ function TranspositionCipher() {
 
         <section id="TranspositionCipherOutput">
           <Row>
-            <Col xs={24} md={12} >
+            <Col xs={24} md={12}>
               {initTable.length > 0 && !isKeyError && (
                 <div className="transposition-output">
                   {isEncrypt ? (
-                    <div className='helperText'> Write row by row </div>
+                    <div className="helperText"> Write row by row </div>
                   ) : (
-                    <div className='helperText'> Write col by col </div>
+                    <div className="helperText"> Write col by col </div>
                   )}
                   <table>
                     {initTable.map((row, index) => (
@@ -211,10 +211,10 @@ function TranspositionCipher() {
                 </div>
               )}
             </Col>
-            <Col xs={24} md={12} >
+            <Col xs={24} md={12}>
               {swappingTable.length > 0 && !isKeyError && (
                 <div className="transposition-output">
-                  <div className='helperText'> Swap columns </div>
+                  <div className="helperText"> Swap columns </div>
                   <table>
                     {swappingTable.map((row, index) => (
                       <tr key={index}>
@@ -248,12 +248,21 @@ function TranspositionCipher() {
           {finalMessage.length > 0 && !isKeyError && (
             <div className="transposition-output">
               {!isEncrypt ? (
-                <div className='helperText'> Read row by row </div>
+                <div className="helperText"> Read row by row </div>
               ) : (
-                <div className='helperText'> Read col by col </div>
+                <div className="helperText"> Read col by col </div>
               )}
-              Final Message:{" "}
-              <span style={{ color: "green", border: '2px solid royalblue', padding:'5px 14px'}}> {finalMessage} </span>
+              Final Message:
+              <span
+                style={{
+                  color: "green",
+                  border: "2px solid royalblue",
+                  padding: "5px 14px",
+                }}
+              >
+                
+                {finalMessage}
+              </span>
             </div>
           )}
         </section>
