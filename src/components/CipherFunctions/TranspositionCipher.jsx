@@ -2,6 +2,18 @@ import { Button, Col, Input, Row } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { useState } from "react";
 
+import './cipher.css';
+
+const colors = [
+  "#1ac9c7",
+  "#34252F",
+  "#5d1ac9",
+  "#992f54",
+  "#868f04",
+  "#eb8b15",
+  "#b40cc7",
+];
+
 function TranspositionCipher() {
   const [message, setMessage] = useState("");
   const [key, setKey] = useState("");
@@ -168,13 +180,13 @@ function TranspositionCipher() {
 
         <section id="TranspositionCipherOutput">
           <Row>
-            <Col xs={24} md={12}>
-              {initTable.length > 0 && (
-                <>
+            <Col xs={24} md={12} >
+              {initTable.length > 0 && !isKeyError && (
+                <div className="transposition-output">
                   {isEncrypt ? (
-                    <div> Write row by row </div>
+                    <div className='helperText'> Write row by row </div>
                   ) : (
-                    <div> Write col by col </div>
+                    <div className='helperText'> Write col by col </div>
                   )}
                   <table>
                     {initTable.map((row, index) => (
@@ -186,6 +198,8 @@ function TranspositionCipher() {
                               padding: "5px 10px",
                               border: " 1px solid black",
                               borderCollapse: "collapse",
+                              color: colors[innerIndex],
+                              fontSize: 17,
                             }}
                           >
                             {item}
@@ -194,13 +208,13 @@ function TranspositionCipher() {
                       </tr>
                     ))}
                   </table>
-                </>
+                </div>
               )}
             </Col>
-            <Col xs={24} md={12}>
-              {swappingTable.length > 0 && (
-                <>
-                  <div> Swap columns </div>
+            <Col xs={24} md={12} >
+              {swappingTable.length > 0 && !isKeyError && (
+                <div className="transposition-output">
+                  <div className='helperText'> Swap columns </div>
                   <table>
                     {swappingTable.map((row, index) => (
                       <tr key={index}>
@@ -209,8 +223,16 @@ function TranspositionCipher() {
                             key={innerIndex}
                             style={{
                               padding: "5px 10px",
-                              border: " 1px solid black",
+                              border: `1px solid black`,
                               borderCollapse: "collapse",
+                              color: isEncrypt
+                                ? colors[formattedKey[innerIndex]]
+                                : colors[
+                                    formattedKey.findIndex(
+                                      (item) => item === innerIndex
+                                    )
+                                  ],
+                              fontSize: 17,
                             }}
                           >
                             {item}
@@ -219,19 +241,19 @@ function TranspositionCipher() {
                       </tr>
                     ))}
                   </table>
-                </>
+                </div>
               )}
             </Col>
           </Row>
-          {finalMessage.length > 0 && (
-            <div>
+          {finalMessage.length > 0 && !isKeyError && (
+            <div className="transposition-output">
               {!isEncrypt ? (
-                <div> Read row by row </div>
+                <div className='helperText'> Read row by row </div>
               ) : (
-                <div> Read col by col </div>
+                <div className='helperText'> Read col by col </div>
               )}
               Final Message:{" "}
-              <span style={{ color: "green" }}> {finalMessage} </span>
+              <span style={{ color: "green", border: '2px solid royalblue', padding:'5px 14px'}}> {finalMessage} </span>
             </div>
           )}
         </section>
