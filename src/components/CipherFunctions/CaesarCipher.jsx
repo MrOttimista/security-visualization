@@ -84,7 +84,8 @@ function CaesarCipher() {
                 color: "green",
               }}
             >{`${result}`}</b>
-            <h4 style={{ marginTop: 15 }}>Details</h4>
+            <h4 style={{ marginTop: 20, fontSize:17}}>Details</h4>
+            {message.length &&  `Each letter is shifted by ${key}`}
             {message
               .split("")
               .filter((letter) => /[a-z]/gi.test(letter))
