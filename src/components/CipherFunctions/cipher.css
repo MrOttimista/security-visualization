@@ -1,23 +1,31 @@
 .listItem {
-    position: relative;
-    margin-bottom: 5px;
-      text-align: center;
-    text-transform: uppercase;
-    animation: fadeIn 0.5s linear;
-    animation-fill-mode: both;
+  position: relative;
+  margin-bottom: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  animation: fadeIn 0.5s linear;
+  animation-fill-mode: both;
+}
+
+#CaesarCipherOutput {
+  overflow: auto;
+  position: relative;
+  animation: fadeIn 0.5s linear;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 100px;
   }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      top: 100px;
-    }
-    75% {
-      opacity: 0.5;
-      top: 0px;
-    }
-    100% {
-      opacity: 1;
-    }
+  75% {
+    opacity: 0.5;
+    top: 0px;
   }
-  
+  100% {
+    opacity: 1;
+  }
+}
+
+
