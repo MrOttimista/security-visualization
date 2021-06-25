@@ -77,9 +77,9 @@ function CaesarCipher() {
             <h2>Result</h2>
             <b
               style={{
-                border: "3px solid royalblue",
+                border: "2px solid royalblue",
                 fontSize: "16px",
-                padding: 5,
+                padding: `5px 15px`,
                 margin: 10,
                 color: "green",
               }}
