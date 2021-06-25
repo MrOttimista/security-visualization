@@ -41,7 +41,7 @@ function App() {
               </Menu.Item>
             </Menu>
           </Header>
-          <Content>
+          <Content style={{overflow:'auto'}}>
             <div>
               <Switch>
                 <Route path="/blockChain">
