@@ -13,9 +13,10 @@ function CipherFunctions() {
       <TabPane tab="Transposition" key="2">
         <TranspositionCipher />
       </TabPane>
-      <TabPane tab="Tab 3" key="3">
+      {/* ToDo */}
+      {/* <TabPane tab="Tab 3" key="3">
         Content of Tab Pane 3
-      </TabPane>
+      </TabPane> */}
     </Tabs>
     </div>
   );
