@@ -1,12 +1,9 @@
 import { Col, Input, Row, InputNumber, Button } from "antd";
 import { useState } from "react";
-import {
-  ArrowRightOutlined 
-} from '@ant-design/icons';
-
+import { ArrowRightOutlined } from "@ant-design/icons";
 
 import encryptDecryptCaesarCipher from "./helpers/encryptDecryptCaesarCipher";
-import './cipher.css'
+import "./cipher.css";
 
 const { TextArea } = Input;
 
@@ -84,17 +81,19 @@ function CaesarCipher() {
                 color: "green",
               }}
             >{`${result}`}</b>
-            <h4 style={{ marginTop: 20, fontSize:17}}>Details</h4>
-            {message.length &&  `Each letter is shifted by ${key}`}
+            <h4 style={{ marginTop: 20, fontSize: 17 }}>Details</h4>
+            {message.length && `Each letter is shifted by ${key}`}
             {message
               .split("")
               .filter((letter) => /[a-z]/gi.test(letter))
               .map((letter, index) => (
-                <div key={index} className='listItem'>
+                <div key={index} className="listItem">
                   <span style={{ padding: "5px", fontSize: "17px" }}>
                     {letter}
                   </span>
-                  <ArrowRightOutlined style={{color:'blue',padding:'8px'}}/>
+                  <ArrowRightOutlined
+                    style={{ color: "blue", padding: "8px" }}
+                  />
                   <span
                     style={{ padding: "5px", color: "green", fontSize: "17px" }}
                   >
