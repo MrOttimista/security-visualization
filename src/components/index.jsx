@@ -12,7 +12,7 @@ function Home() {
           <FileSearchOutlined /> Security Visualization
         </h1>
         <p style={{ height: "110px",padding:50,fontSize:'20px' }}>
-            Visualizing Tool For Awesome Security Algorithm
+            Visualizing Tool For Awesome Security Algorithms
         </p>
         <svg
           style={{ display: "block" }}
