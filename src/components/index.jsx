@@ -11,7 +11,7 @@ function Home() {
         <h1 style={{ color: "white", fontSize: "30px" }}>
           <FileSearchOutlined /> Security Visualization
         </h1>
-        <p style={{ height: "120px",padding:50,fontSize:'20px' }}>
+        <p style={{ height: "110px",padding:50,fontSize:'20px' }}>
             Visualizing Tool For Awesome Security Algorithm
         </p>
         <svg
@@ -31,6 +31,11 @@ function Home() {
       <Col span={4} className='card' onClick={()=>history.push('/BlockChain')}>BlockChain</Col>
       <Col span={4} className='card' onClick={()=>history.push('/Cipher')}>Classic Cipher</Col>
       <Col span={4} className='card' onClick={()=>history.push('/RSA')}>RSA</Col>
+
+    </Row>
+    <Row style={{marginTop:20}}>
+      <Col span={4} className='card' onClick={()=>history.push('/ELGAMAL')}>ELGAMAL</Col>
+      <Col span={4} className='card' onClick={()=>history.push('/SHA512')}>HSA512</Col>
     </Row>
     </>
   );
