@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.card{
+  font-size: 20px;
+  border: #282c34 solid 1px;
+  border-radius: 20px;
+  height: 70px;
+  line-height: 70px;
+  color:brown;
+  box-shadow:10px 10px 5px #908ec7;
+  text-align: center;
+  margin:auto;
+  user-select: none;
+}
+.card:hover{
+  background-color: white;
+  animation: cardHover  1s linear;
+}
+
+@keyframes cardHover {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}

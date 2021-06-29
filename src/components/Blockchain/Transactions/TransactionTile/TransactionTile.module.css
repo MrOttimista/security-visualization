@@ -1,0 +1,22 @@
+@keyframes slideIn {
+  from {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.container {
+  width: calc(100% - 10%);
+  margin: 10px 5% 10px 5%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #efefef;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+
+}
