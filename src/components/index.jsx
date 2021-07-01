@@ -35,7 +35,7 @@ function Home() {
     </Row>
     <Row style={{marginTop:20}}>
       <Col span={4} className='card' onClick={()=>history.push('/ELGAMAL')}>ELGAMAL</Col>
-      <Col span={4} className='card' onClick={()=>history.push('/SHA512')}>HSA512</Col>
+      <Col span={4} className='card' onClick={()=>history.push('/SHA512')}>SHA512</Col>
     </Row>
     </>
   );
